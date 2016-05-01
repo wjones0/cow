@@ -14,7 +14,7 @@ export class AuthService {
   refreshSubscription: any;
   user: Object;
   zoneImpl: NgZone;
-  
+
   constructor(private authHttp: AuthHttp, zone: NgZone) {
     this.zoneImpl = zone;
     // If there is a profile saved in local storage
@@ -24,12 +24,12 @@ export class AuthService {
       console.log(error);
     });
   }
-  
+
   public authenticated() {
     // Check if there's an unexpired JWT
     return tokenNotExpired();
   }
-  
+
   public login() {
     // Show the Auth0 Lock widget
     this.lock.show({
@@ -47,16 +47,16 @@ export class AuthService {
       this.local.set('id_token', token);
       this.local.set('refresh_token', refreshToken);
       this.zoneImpl.run(() => this.user = profile);
-    });    
+    });
   }
-  
+
   public logout() {
     this.local.remove('profile');
     this.local.remove('id_token');
     this.local.remove('refresh_token');
     this.zoneImpl.run(() => this.user = null);
   }
-  
+
   public scheduleRefresh() {
     // If the user is authenticated, use the token stream
     // provided by angular2-jwt and flatMap the token

@@ -3,7 +3,8 @@ var gulp = require('gulp'),
     del = require('del'),
     runSequence = require('run-sequence'),
     argv = process.argv;
-
+var tslint = require('gulp-tslint');
+var stylish = require('tslint-stylish');
 
 /**
  * Ionic hooks
@@ -35,9 +36,20 @@ var copyScripts = require('ionic-gulp-scripts-copy');
 
 var isRelease = argv.indexOf('--release') > -1;
 
+// TSLint our TypeScript
+gulp.task('tslint', function() {
+    return gulp.src(['app/**/*.ts'])
+        .pipe(tslint())
+        .pipe(tslint.report(stylish, {
+            emitError: false,
+            sort: true,
+            bell: true
+        }))
+});
+
 gulp.task('watch', ['clean'], function(done){
   runSequence(
-    ['sass', 'html', 'fonts', 'scripts'],
+    ['tslint', 'sass', 'html', 'fonts', 'scripts'],
     function(){
       gulpWatch('app/**/*.scss', function(){ gulp.start('sass'); });
       gulpWatch('app/**/*.html', function(){ gulp.start('html'); });
@@ -48,7 +60,7 @@ gulp.task('watch', ['clean'], function(done){
 
 gulp.task('build', ['clean'], function(done){
   runSequence(
-    ['sass', 'html', 'fonts', 'scripts'],
+    ['tslint', 'sass', 'html', 'fonts', 'scripts'],
     function(){
       buildBrowserify({
         minify: isRelease,
