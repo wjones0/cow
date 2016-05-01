@@ -18,7 +18,10 @@
     "ionic-gulp-scripts-copy": "^1.0.1",
     "run-sequence": "1.1.5"
   },
-  "cordovaPlugins": [],
+  "cordovaPlugins": [
+    "cordova-plugin-inappbrowser",
+    "cordova-plugin-whitelist"
+  ],
   "cordovaPlatforms": [
     "android"
   ]
