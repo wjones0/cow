@@ -4,7 +4,7 @@ var stylish = require('jshint-stylish');
 
 // JSLint our TypeScript
 gulp.task('jshint', function() {
-    return gulp.src(['api/**/*.js', 'routes/**/*.js', 'public/**/*.js', 'app.js'])
+    return gulp.src(['api/**/*.js', 'routes/**/*.js', 'public/**/*.js', 'models/**/*.js', 'app.js'])
     .pipe(jshint())
     .pipe(jshint.reporter(stylish));
 });

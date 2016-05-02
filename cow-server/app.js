@@ -6,10 +6,15 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var jwt = require('express-jwt');
 
+var mongoose = require('mongoose');
+
 var routes = require('./routes/index');
 var sets = require('./api/sets');
 
 var app = express();
+
+// connect to mongodb
+mongoose.connect(process.env.MONGO_CONN);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
