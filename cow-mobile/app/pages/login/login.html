@@ -4,13 +4,13 @@
 
   <ion-content padding *ngIf="!auth.authenticated()">
 
-    <button block (click)="auth.login()">Login</button>
+    <button block (click)="login()">Login</button>
 
   </ion-content>
 
   <ion-content padding *ngIf="auth.authenticated()">  
 
-    <ion-card>
+    <ion-card (click)="gotoChars()">
 
       <ion-item *ngIf="auth.user">
         <ion-avatar item-left>
