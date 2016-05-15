@@ -1,6 +1,7 @@
 import {Page, NavController} from 'ionic-angular';
 import {CharacterService} from '../../providers/character-service/character-service';
 import {Character} from '../../character/character';
+import {SetsPage} from '../sets/sets';
 
 /*
   Generated class for the CharactersPage page.
@@ -20,8 +21,13 @@ export class CharactersPage {
   }
 
   getCharacters() {
-        this._charService.load().then(data =>
-              this.characters = data
-            );
-    }
+    this._charService.load().then(data =>
+      this.characters = data
+    );
+  }
+
+  navToSets(charID: string) {
+    this._nav.push(SetsPage, {charID: charID});
+  }
+
 }

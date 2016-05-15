@@ -11,7 +11,7 @@ import {Character} from '../../character/character';
 */
 @Injectable()
 export class CharacterService {
-  
+
   data: Character[];
 
   constructor() {

@@ -10,7 +10,7 @@
 
 <ion-content padding class="characters">
   
-  <ion-card *ngFor="#c of characters">
+  <ion-card *ngFor="#c of characters" (click)="navToSets(c.id)">
     <ion-item>
       <ion-avatar item-left>
         <!--<img src="{{ auth.user.picture }}">-->
