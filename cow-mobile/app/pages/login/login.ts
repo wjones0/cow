@@ -1,5 +1,5 @@
 import {Page, NavController} from 'ionic-angular';
-import {AuthService} from '../../services/auth/auth';
+import {AuthService} from '../../providers/auth/auth';
 import {CharactersPage} from '../characters/characters';
 
 @Page({

@@ -4,7 +4,7 @@ import {LoginPage} from './pages/login/login';
 import {Http} from 'angular2/http';
 import {provide} from 'angular2/core';
 import {AuthHttp, AuthConfig} from 'angular2-jwt';
-import {AuthService} from './services/auth/auth';
+import {AuthService} from './providers/auth/auth';
 import {CharacterService} from './providers/character-service/character-service';
 
 @App({

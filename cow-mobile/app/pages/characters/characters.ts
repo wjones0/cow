@@ -21,9 +21,11 @@ export class CharactersPage {
   }
 
   getCharacters() {
-    this._charService.load().then(data =>
-      this.characters = data
-    );
+    this._charService.load()
+      .subscribe(
+        data => this.characters = data,
+        err => console.log(JSON.stringify(err))
+      );
   }
 
   navToSets(charID: string) {
