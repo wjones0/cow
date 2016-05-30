@@ -9,13 +9,17 @@
 </ion-navbar>
 
 <ion-content padding class="new-character">
-  <ion-list>
-    <ion-item>
-      <ion-input placeholder="Name" [(ngModel)]="newChar.name"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-input placeholder="Realm" [(ngModel)]="newChar.realm"></ion-input>
-    </ion-item>
-  </ion-list>
-  <button block (click)="addCharacter()">Add</button>
+  <form #charForm="ngForm">
+    <ion-list>
+      <ion-item>
+        <ion-label floating>Name</ion-label>
+        <ion-input [(ngModel)]="newChar.name" required ngControl='name'></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Realm</ion-label>
+        <ion-input [(ngModel)]="newChar.realm" required ngControl='realm'></ion-input>
+      </ion-item>
+    </ion-list>
+    <button block (click)="addCharacter()" [disabled]="!charForm.form.valid">Add</button>
+  </form>
 </ion-content>
