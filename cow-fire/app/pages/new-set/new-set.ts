@@ -1,40 +1,36 @@
 import {Page, NavController, NavParams} from 'ionic-angular';
 import {AngularFire} from 'angularfire2';
 
-import {Character} from '../../models/character';
-
 /*
-  Generated class for the NewCharacterPage page.
+  Generated class for the NewSetPage page.
 
   See http://ionicframework.com/docs/v2/components/#navigation for more info on
   Ionic pages and navigation.
 */
 @Page({
-  templateUrl: 'build/pages/new-character/new-character.html',
+  templateUrl: 'build/pages/new-set/new-set.html',
 })
-export class NewCharacterPage {
-
+export class NewSetPage {
+  
+  newSet: any;
   dbURL: string;
-  newChar: Character;
-
+  
   constructor(private _nav: NavController, private _af: AngularFire, private _navParams: NavParams) {
     this.dbURL = this._navParams.get('dbURL');
   }
   
   ngOnInit() {
-        this.newChar = {
+        this.newSet = {
           name: "",
-          realm: ""
+          numItemsHave: 0,
+          numItemsTotal: 0
         };
     }
-
-  addCharacter() {
-    const characters = this._af.database.list(this.dbURL);
-    characters.push(this.newChar);
+    
+addSet() {
+    const sets = this._af.database.list(this.dbURL);
+    sets.push(this.newSet);
     
     this._nav.pop();
-  }
-
-
-
+  }    
 }

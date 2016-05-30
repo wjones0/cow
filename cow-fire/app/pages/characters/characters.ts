@@ -3,6 +3,7 @@ import {AngularFire, FirebaseListObservable} from 'angularfire2';
 import {Observable} from 'rxjs/Rx';
 
 import {NewCharacterPage} from '../new-character/new-character';
+import {SetsPage} from '../sets/sets';
 
 /*
   Generated class for the CharactersPage page.
@@ -49,7 +50,7 @@ export class CharactersPage {
   }
   
   navToSets(dbURL: string) {
-    // this._nav.push(TabsPage, {dbURL: dbURL});
+     this._nav.push(SetsPage, {dbURL: dbURL});
   }
   
 }
