@@ -12,4 +12,5 @@
   <div *ngIf="_af.auth | async">You are logged in</div>
   <div *ngIf="!(_af.auth | async)">Please log in</div>
   <button (click)="login()">Login</button>
+  <button (click)="logout()">Logout</button>
 </ion-content>

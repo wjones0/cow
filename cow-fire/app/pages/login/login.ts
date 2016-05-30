@@ -20,4 +20,8 @@ export class LoginPage {
   login() {
     this._af.auth.login();
   }
+  
+  logout() {
+    this._af.auth.logout();
+  }
 }
