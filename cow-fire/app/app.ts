@@ -1,6 +1,6 @@
 import {App, Platform} from 'ionic-angular';
 import {StatusBar} from 'ionic-native';
-import {LoginPage} from './pages/login/login';
+import {CharactersPage} from './pages/characters/characters';
 
 import {
     FIREBASE_PROVIDERS, defaultFirebase,
@@ -21,7 +21,7 @@ import {
   config: {} // http://ionicframework.com/docs/v2/api/config/Config/
 })
 export class MyApp {
-  rootPage: any = LoginPage;
+  rootPage: any = CharactersPage;
 
   constructor(platform: Platform) {
     platform.ready().then(() => {
