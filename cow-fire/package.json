@@ -31,7 +31,10 @@
     "tslint": "^3.10.2",
     "tslint-stylish": "^2.1.0-beta"
   },
-  "cordovaPlugins": [],
+  "cordovaPlugins": [
+    "cordova-plugin-whitelist",
+    "cordova-plugin-inappbrowser"
+  ],
   "cordovaPlatforms": [
     "android"
   ]
