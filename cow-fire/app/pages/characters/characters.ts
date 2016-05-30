@@ -48,4 +48,8 @@ export class CharactersPage {
     this._nav.push(NewCharacterPage, {dbURL: this.dbURL});
   }
   
+  navToSets(dbURL: string) {
+    // this._nav.push(TabsPage, {dbURL: dbURL});
+  }
+  
 }
