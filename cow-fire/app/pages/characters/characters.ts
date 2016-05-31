@@ -49,8 +49,8 @@ export class CharactersPage {
     this._nav.push(NewCharacterPage, {dbURL: this.dbURL});
   }
   
-  navToSets(dbURL: string) {
-     this._nav.push(SetsPage, {dbURL: dbURL});
+  navToSets(dbURL: string, char: any) {
+     this._nav.push(SetsPage, {dbURL: dbURL, charID: char.$key, charName: char.name});
   }
   
 }

@@ -3,6 +3,7 @@ import {AngularFire, FirebaseListObservable} from 'angularfire2';
 import {Observable} from 'rxjs/Rx';
 
 import {NewSetPage} from '../new-set/new-set';
+import {SetDetailsPage} from '../set-details/set-details';
 
 /*
   Generated class for the SetsPage page.
@@ -14,18 +15,47 @@ import {NewSetPage} from '../new-set/new-set';
   templateUrl: 'build/pages/sets/sets.html',
 })
 export class SetsPage {
-  
+
   dbURL: string;
+  charName: string;
+  charID: string;
   sets: any;
 
   constructor(private _nav: NavController, private _af: AngularFire, private _navParams: NavParams) {
-        this.dbURL = this._navParams.get('dbURL') + '/sets';
-        this.sets = this._af.list(this.dbURL);
+    this.charName = this._navParams.get('charName');
+    this.charID = this._navParams.get('charID');
+    this.dbURL = this._navParams.get('dbURL') + '/' + this.charID + '/sets';
+    this.sets = this._af.list(this.dbURL);
   }
-  
+
   navToAdd() {
-    this._nav.push(NewSetPage, {dbURL: this.dbURL});
+    this._nav.push(NewSetPage, { dbURL: this.dbURL });
+  }
+
+  navToSetDetails(dbURL: string, set: any) {
+    this._nav.push(SetDetailsPage, { dbURL: dbURL, setID: set.$key, setName: set.name });
+  }
+
+  total(items: any) {
+    if(!items)
+      return 0;
+
+    return Object.keys(items).length
   }
   
+  obtained(items: any) {
+    if(!items)
+      return 0;
+    
+    let count = 0;
+    
+    for(let i of Object.keys(items))
+    {
+      if(items[i].obtained)
+        count++;
+    }
+    
+    return count;
+  }
 
 }

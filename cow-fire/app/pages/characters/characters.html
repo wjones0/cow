@@ -19,7 +19,7 @@
 </ion-navbar>
 
 <ion-content padding class="characters">
-  <ion-card *ngFor="let c of characters | async" (click)="navToSets(dbURL + '/'+c.$key)">
+  <ion-card *ngFor="let c of characters | async" (click)="navToSets(dbURL,c)">
     <ion-item>
       <ion-avatar item-left>
         <!--<img src="{{ auth.user.picture }}">-->

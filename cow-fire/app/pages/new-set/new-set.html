@@ -15,6 +15,10 @@
         <ion-label floating>Name</ion-label>
         <ion-input [(ngModel)]="newSet.name" required ngControl='name'></ion-input>
       </ion-item>
+      <ion-item>
+        <ion-label floating>Raid Tier</ion-label>
+        <ion-input type="number" [(ngModel)]="newSet.raidTier" ngControl='raidtier'></ion-input>
+      </ion-item>
     </ion-list>
     <button block (click)="addSet()" [disabled]="!setForm.form.valid">Add</button>
   </form>
