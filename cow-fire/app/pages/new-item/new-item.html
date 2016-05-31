@@ -15,6 +15,14 @@
         <ion-label floating>Name</ion-label>
         <ion-input [(ngModel)]="newItem.name" required ngControl='name'></ion-input>
       </ion-item>
+      <ion-item>
+        <ion-label floating>Zone</ion-label>
+        <ion-input [(ngModel)]="newItem.zone" required ngControl='zone'></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Mob</ion-label>
+        <ion-input [(ngModel)]="newItem.mob" required ngControl='mob'></ion-input>
+      </ion-item>
     </ion-list>
     <button block (click)="addItem()" [disabled]="!itemForm.form.valid">Add</button>
   </form>
