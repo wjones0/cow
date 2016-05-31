@@ -15,15 +15,14 @@
       <ion-label>
         <ion-card-content>{{i.name}}</ion-card-content>
       </ion-label>
-    <ion-card-content item-right>
-      <h2>{{i.zone}}</h2>
-      <p>{{i.mob}}</p>
-    </ion-card-content>
+      <ion-card-content item-right>
+        <h2>{{i.zone}}</h2>
+        <p>{{i.mob}}</p>
+      </ion-card-content>
     </ion-item>
   </ion-card>
-
-  <button fab fab-bottom fab-right (click)="navToAdd()">
-    <ion-icon name="add"></ion-icon>
-  </button>
-
 </ion-content>
+
+<button fab fab-bottom fab-right (click)="navToAdd()" style="z-index:100">
+    <ion-icon name="add"></ion-icon>
+</button>
