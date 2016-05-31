@@ -24,7 +24,9 @@ export class NewItemPage {
   ngOnInit() {
     this.newItem = {
       name: "",
-      obtained: false
+      obtained: false,
+      buyable: false,
+      boe: false
     };
   }
 

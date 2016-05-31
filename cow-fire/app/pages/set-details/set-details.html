@@ -9,17 +9,25 @@
 </ion-navbar>
 
 <ion-content padding class="set-details">
-  <ion-card *ngFor="let i of items | async">
-    <ion-item>
-      <ion-checkbox checked="{{i.obtained}}" (click)="updateObtained(i)">{{i.name}}</ion-checkbox>
-      <ion-label>
-        <ion-card-content>{{i.name}}</ion-card-content>
-      </ion-label>
-      <ion-card-content item-right>
-        <h2>{{i.zone}}</h2>
-        <p>{{i.mob}}</p>
-      </ion-card-content>
-    </ion-item>
+  <ion-card *ngFor="let i of items | async" [ngClass]="{obtained: i.obtained}" (click)="updateObtained(i)">
+    <ion-card-header>
+      <ion-row>
+        <ion-col width-80>
+          {{i.name}}
+        </ion-col>
+        <ion-col width-20>
+          <ion-icon *ngIf="i.buyable" class="icon-right" name="pricetag"></ion-icon>
+          <ion-icon *ngIf="i.boe" class="icon-right" name="swap"></ion-icon>
+        </ion-col>
+      </ion-row>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-row>
+        <ion-col width-80>
+          {{i.zone}} -- {{i.mob}}
+        </ion-col>
+      </ion-row>
+    </ion-card-content>
   </ion-card>
 </ion-content>
 
