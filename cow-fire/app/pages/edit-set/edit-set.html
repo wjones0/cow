@@ -1,0 +1,25 @@
+<!--
+  Generated template for the EditSetPage page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-navbar *navbar>
+  <ion-title>Edit Set</ion-title>
+</ion-navbar>
+
+<ion-content padding class="new-set">
+  <form #setForm="ngForm">
+    <ion-list>
+      <ion-item>
+        <ion-label floating>Name</ion-label>
+        <ion-input [(ngModel)]="newSet.name" required ngControl='name'></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Raid Tier</ion-label>
+        <ion-input type="number" [(ngModel)]="newSet.raidTier" ngControl='raidtier'></ion-input>
+      </ion-item>
+    </ion-list>
+    <button block (click)="saveSet()" [disabled]="!setForm.form.valid">Save</button>
+  </form>
+</ion-content>

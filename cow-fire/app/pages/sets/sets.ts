@@ -4,6 +4,7 @@ import {Observable} from 'rxjs/Rx';
 
 import {NewSetPage} from '../new-set/new-set';
 import {SetDetailsPage} from '../set-details/set-details';
+import {EditSetPage} from '../edit-set/edit-set';
 
 /*
   Generated class for the SetsPage page.
@@ -32,8 +33,12 @@ export class SetsPage {
     this._nav.push(NewSetPage, { dbURL: this.dbURL });
   }
 
-  navToSetDetails(dbURL: string, set: any) {
-    this._nav.push(SetDetailsPage, { dbURL: dbURL, setID: set.$key, setName: set.name });
+  navToSetDetails(set: any) {
+    this._nav.push(SetDetailsPage, { dbURL: this.dbURL, setID: set.$key, setName: set.name });
+  }
+  
+  navToEditSet(set: any) {
+    this._nav.push(EditSetPage, { dbURL: this.dbURL, setID: set.$key, setName: set.name });
   }
 
   total(items: any) {

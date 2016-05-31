@@ -13,11 +13,9 @@ import {AngularFire} from 'angularfire2';
 export class NewItemPage {
 
   newItem: any;
-  setID: string;
   dbURL: string;
 
   constructor(private _nav: NavController, private _af: AngularFire, private _navParams: NavParams) {
-    this.setID = this._navParams.get('setID');
     this.dbURL = this._navParams.get('dbURL');
   }
 

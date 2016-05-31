@@ -9,8 +9,8 @@
 </ion-navbar>
 
 <ion-content padding class="sets">
-  <ion-card *ngFor="let s of sets | async" (click)="navToSetDetails(dbURL,s)">
-    <ion-item>
+  <ion-card *ngFor="let s of sets | async" (click)="navToSetDetails(s)" (press)="navToEditSet(s)">
+    <ion-item [ngClass]="{obtained: obtained(s.items)==total(s.items)}">
       <ion-card-content item-left>
         <ion-badge *ngIf="s.raidTier">Tier {{s.raidTier}}</ion-badge>
       </ion-card-content>

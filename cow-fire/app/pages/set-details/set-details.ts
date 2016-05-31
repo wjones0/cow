@@ -1,6 +1,7 @@
 import {Page, NavController, NavParams} from 'ionic-angular';
 import {AngularFire, FirebaseListObservable} from 'angularfire2';
 import {NewItemPage} from '../new-item/new-item';
+import {EditItemPage} from '../edit-item/edit-item';
 
 /*
   Generated class for the SetDetailsPage page.
@@ -26,7 +27,11 @@ export class SetDetailsPage {
   }
   
   navToAdd() {
-    this._nav.push(NewItemPage, {dbURL: this.dbURL, setID: this.setID});
+    this._nav.push(NewItemPage, {dbURL: this.dbURL});
+  }
+  
+  navToEdit(item: any) {
+    this._nav.push(EditItemPage,{dbURL: this.dbURL, itemID: item.$key})
   }
   
   updateObtained(item:any) {
