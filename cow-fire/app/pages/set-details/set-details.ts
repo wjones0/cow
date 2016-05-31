@@ -19,6 +19,8 @@ export class SetDetailsPage {
   dbURL: string;
   items: any;
   
+  showAll = true;
+  
   constructor(private _nav: NavController, private _navParams: NavParams, private _af: AngularFire) {
         this.setID = this._navParams.get('setID');
         this.setName = this._navParams.get('setName');
