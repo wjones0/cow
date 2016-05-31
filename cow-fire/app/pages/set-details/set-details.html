@@ -9,35 +9,49 @@
 </ion-navbar>
 
 <ion-content padding class="set-details">
-  <ion-col offset-67>
+  <ion-col offset-75>
     <ion-row>
       Show All&nbsp;&nbsp;
       <ion-toggle [(ngModel)]="showAll"></ion-toggle>
     </ion-row>
   </ion-col>
   <br/>
-  <ion-card *ngFor="let i of items | async" [ngClass]="{obtained: i.obtained}" (click)="updateObtained(i)" (press)="navToEdit(i)">
-    <div *ngIf="showAll || !i.obtained">
-      <ion-card-header>
-        <ion-row>
-          <ion-col width-80>
-            {{i.name}}
-          </ion-col>
-          <ion-col width-20>
-            <ion-icon *ngIf="i.buyable" class="icon-right" name="pricetag"></ion-icon>
-            <ion-icon *ngIf="i.boe" class="icon-right" name="swap"></ion-icon>
-          </ion-col>
-        </ion-row>
-      </ion-card-header>
-      <ion-card-content>
-        <ion-row>
-          <ion-col width-80>
-            {{i.zone}} -- {{i.mob}}
-          </ion-col>
-        </ion-row>
-      </ion-card-content>
-    </div>
-  </ion-card>
+  <ion-list>
+    <ion-card *ngFor="let i of items | async">
+      <ion-item-sliding *ngIf="showAll || !i.obtained">
+        <ion-item [ngClass]="{obtained: i.obtained}" (click)="updateObtained(i)">
+          <ion-card-header>
+            <ion-row>
+              <ion-col width-80>
+                {{i.name}}
+              </ion-col>
+              <ion-col width-20>
+                <ion-icon *ngIf="i.buyable" class="icon-right" name="pricetag"></ion-icon>
+                <ion-icon *ngIf="i.boe" class="icon-right" name="swap"></ion-icon>
+              </ion-col>
+            </ion-row>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-row>
+              <ion-col width-80>
+                {{i.zone}} -- {{i.mob}}
+              </ion-col>
+            </ion-row>
+          </ion-card-content>
+        </ion-item>
+        <ion-item-options>
+          <button primary (click)="navToEdit(i)">
+            <ion-icon name="create"></ion-icon>
+            Edit
+          </button>
+          <button danger>
+            <ion-icon name="trash"></ion-icon>
+            Delete
+          </button>
+        </ion-item-options>
+      </ion-item-sliding>
+    </ion-card>
+  </ion-list>
 </ion-content>
 
 <button fab fab-bottom fab-right (click)="navToAdd()" style="z-index:100">

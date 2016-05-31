@@ -21,12 +21,14 @@ export class SetsPage {
   charName: string;
   charID: string;
   sets: any;
+  selSetFilter: string;
 
   constructor(private _nav: NavController, private _af: AngularFire, private _navParams: NavParams) {
     this.charName = this._navParams.get('charName');
     this.charID = this._navParams.get('charID');
     this.dbURL = this._navParams.get('dbURL') + '/' + this.charID + '/sets';
     this.sets = this._af.list(this.dbURL);
+    this.selSetFilter = 'all';
   }
 
   navToAdd() {

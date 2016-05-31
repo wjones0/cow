@@ -5,21 +5,49 @@
   Ionic pages and navigation.
 -->
 <ion-navbar *navbar>
-  <ion-title>{{charName}}'s Sets</ion-title>
+  <ion-title color='primary'>{{charName}}'s Sets</ion-title>
 </ion-navbar>
 
+<ion-toolbar>
+  <ion-segment [(ngModel)]="selSetFilter">
+    <ion-segment-button value="all">
+      All
+    </ion-segment-button>
+    <ion-segment-button value="incomplete">
+      In Progress
+    </ion-segment-button>
+    <ion-segment-button value="complete">
+      Completed
+    </ion-segment-button>
+  </ion-segment>
+</ion-toolbar>
+
 <ion-content padding class="sets">
-  <ion-card *ngFor="let s of sets | async" (click)="navToSetDetails(s)" (press)="navToEditSet(s)">
-    <ion-item [ngClass]="{obtained: obtained(s.items)==total(s.items)}">
-      <ion-card-content item-left>
-        <ion-badge *ngIf="s.raidTier">Tier {{s.raidTier}}</ion-badge>
-      </ion-card-content>
-      <ion-card-content>{{s.name}}</ion-card-content>
-      <ion-card-content item-right>
-        <span>{{obtained(s.items)}}/{{total(s.items)}}</span>
-      </ion-card-content>
-    </ion-item>
-  </ion-card>
+  <ion-list>
+    <ion-card *ngFor="let s of sets | async">
+      <ion-item-sliding *ngIf="selSetFilter=='all' || (selSetFilter=='incomplete' && obtained(s.items)!=total(s.items)) || (selSetFilter=='complete' && obtained(s.items)==total(s.items))">
+        <ion-item [ngClass]="{obtained: obtained(s.items)==total(s.items)}" (click)="navToSetDetails(s)">
+          <ion-card-content item-left>
+            <ion-badge *ngIf="s.raidTier">Tier {{s.raidTier}}</ion-badge>
+          </ion-card-content>
+          <ion-card-content>{{s.name}}</ion-card-content>
+          <ion-card-content item-right>
+            <span>{{obtained(s.items)}}/{{total(s.items)}}</span>
+          </ion-card-content>
+        </ion-item>
+        <ion-item-options>
+          <button primary (click)="navToEditSet(s)">
+            <ion-icon name="create"></ion-icon>
+            Edit
+          </button>
+          <button danger>
+            <ion-icon name="trash"></ion-icon>
+            Delete
+          </button>
+        </ion-item-options>
+      </ion-item-sliding>
+    </ion-card>
+  </ion-list>
 </ion-content>
 
 <button fab fab-bottom fab-right (click)="navToAdd()" style="z-index:100">
