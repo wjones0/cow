@@ -1,10 +1,11 @@
-import {Page, NavController, NavParams} from 'ionic-angular';
+import {Page, NavController, NavParams, Modal} from 'ionic-angular';
 import {AngularFire, FirebaseListObservable} from 'angularfire2';
 import {Observable} from 'rxjs/Rx';
 
 import {NewSetPage} from '../new-set/new-set';
 import {SetDetailsPage} from '../set-details/set-details';
 import {EditSetPage} from '../edit-set/edit-set';
+import {DeletePage} from '../delete/delete';
 
 /*
   Generated class for the SetsPage page.
@@ -41,6 +42,11 @@ export class SetsPage {
   
   navToEditSet(set: any) {
     this._nav.push(EditSetPage, { dbURL: this.dbURL, setID: set.$key, setName: set.name });
+  }
+  
+  navToDelete(set: any) {
+    let modal = Modal.create(DeletePage, { dbURL: this.dbURL + '/' + set.$key, delName: set.name, delType: 'set'});
+    this._nav.present(modal);
   }
 
   total(items: any) {
