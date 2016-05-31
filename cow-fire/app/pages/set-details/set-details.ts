@@ -20,7 +20,7 @@ export class SetDetailsPage {
   dbURL: string;
   items: any;
 
-  showAll = true;
+  showAll = false;
 
   constructor(private _nav: NavController, private _navParams: NavParams, private _af: AngularFire) {
     this.setID = this._navParams.get('setID');

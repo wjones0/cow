@@ -29,7 +29,7 @@ export class SetsPage {
     this.charID = this._navParams.get('charID');
     this.dbURL = this._navParams.get('dbURL') + '/' + this.charID + '/sets';
     this.sets = this._af.list(this.dbURL);
-    this.selSetFilter = 'all';
+    this.selSetFilter = 'incomplete';
   }
 
   navToAdd() {
