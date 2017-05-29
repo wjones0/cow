@@ -1,0 +1,8 @@
+<md-card *ngFor="let c of charSvc.characterList | async" (click)="selectChar(c)">
+  <md-card-title>{{c.name}}</md-card-title>
+  <md-card-subtitle>{{c.realm}}</md-card-subtitle>
+</md-card>
+
+<button md-fab class="fab">
+  <md-icon>add</md-icon>
+</button>

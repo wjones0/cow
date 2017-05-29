@@ -11,6 +11,7 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import 'hammerjs';
 import {
   MdButtonModule,
+  MdCardModule,
   MdIconModule,
   MdMenuModule,
   MdToolbarModule,
@@ -21,11 +22,15 @@ import { environment } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TopbarComponent } from './components/topbar/topbar.component';
+import { CharactersComponent } from './components/characters/characters.component';
+
+import { CharService } from './services/char-service/char.service';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TopbarComponent
+    TopbarComponent,
+    CharactersComponent
   ],
   imports: [
     BrowserModule,
@@ -36,12 +41,15 @@ import { TopbarComponent } from './components/topbar/topbar.component';
     AngularFireDatabaseModule,
     AngularFireAuthModule,
     MdButtonModule,
+    MdCardModule,
     MdIconModule,
     MdMenuModule,
     MdToolbarModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    CharService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
