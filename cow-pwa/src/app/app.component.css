@@ -1,0 +1,9 @@
+
+:host >>> .mat-button {
+    min-width: 0px;
+}
+
+:host >>> .mat-toolbar-row {
+    display: flex;
+    justify-content: space-between;
+}

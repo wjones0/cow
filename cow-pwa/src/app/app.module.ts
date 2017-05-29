@@ -4,7 +4,11 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import 'hammerjs';
-import { MdToolbarModule } from '@angular/material';
+import {
+  MdButtonModule,
+  MdIconModule,
+  MdToolbarModule,
+} from '@angular/material';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,6 +21,8 @@ import { AppComponent } from './app.component';
     BrowserModule,
     FormsModule,
     HttpModule,
+    MdButtonModule,
+    MdIconModule,
     MdToolbarModule,
     AppRoutingModule
   ],
