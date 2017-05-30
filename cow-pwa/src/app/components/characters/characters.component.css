@@ -5,6 +5,10 @@
     bottom: 24px;
 }
 
+.header {
+    margin-top: 68px;
+}
+
 md-card {
     margin: 12px;
 }

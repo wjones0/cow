@@ -1,3 +1,5 @@
+<div class="header"></div>
+
 <md-card *ngFor="let c of charSvc.characterList | async" (click)="selectChar(c)">
   <md-card-title>{{c.name}}</md-card-title>
   <md-card-subtitle>{{c.realm}}</md-card-subtitle>

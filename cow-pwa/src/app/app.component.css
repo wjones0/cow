@@ -1,3 +1,10 @@
+cow-topbar {
+    position: fixed;
+    width: 100%;
+    left: 0px;
+    top: 0px;
+    z-index: 2;
+}
 
 :host >>> .mat-button {
     min-width: 0px;
@@ -6,4 +13,8 @@
 :host >>> .mat-toolbar-row {
     display: flex;
     justify-content: space-between;
+}
+
+router-outlet {
+    margin-top: 56px;
 }

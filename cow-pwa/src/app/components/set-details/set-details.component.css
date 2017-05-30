@@ -8,7 +8,8 @@
 .header {
     margin: 12px;
     color: #333333;
-    
+    margin-top: 56px;
+ 
     display: flex;
     justify-content: space-between;
     align-items: center;
