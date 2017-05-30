@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import { Subscription } from 'rxjs/Subscription';
 
@@ -12,7 +13,7 @@ import { Character } from '../../models/character';
 })
 export class CharactersComponent implements OnInit {
 
-  constructor(public charSvc: CharService) {
+  constructor(public charSvc: CharService, private _router: Router) {
   }
 
   ngOnInit() {
@@ -22,7 +23,7 @@ export class CharactersComponent implements OnInit {
   }
 
   selectChar(char: Character) {
-    this.charSvc.selectCharacter(char.$key);
+    this._router.navigate(['sets', { charid: char.$key, charName: char.name }]);
   }
 
 }

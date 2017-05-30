@@ -1,0 +1,41 @@
+
+.fab {
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+}
+
+.header {
+    margin: 12px;
+    color: #333333;
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+md-card {
+    margin: 12px;
+}
+
+md-card-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+:host >>> .obtained {
+    background-color: rgba(0,0,0,.50);
+}
+
+.tier-badge {
+    width: 36px;
+    height: 36px;
+    border-radius: 100%;
+    background-color: #69f0ae;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgba(0,0,0,.87);
+}

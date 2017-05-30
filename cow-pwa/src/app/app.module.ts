@@ -14,6 +14,7 @@ import {
   MdCardModule,
   MdIconModule,
   MdMenuModule,
+  MdSlideToggleModule,
   MdToolbarModule,
 } from '@angular/material';
 
@@ -25,12 +26,16 @@ import { TopbarComponent } from './components/topbar/topbar.component';
 import { CharactersComponent } from './components/characters/characters.component';
 
 import { CharService } from './services/char-service/char.service';
+import { SetsComponent } from './components/sets/sets.component';
+import { SetDetailsComponent } from './components/set-details/set-details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TopbarComponent,
-    CharactersComponent
+    CharactersComponent,
+    SetsComponent,
+    SetDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -44,6 +49,7 @@ import { CharService } from './services/char-service/char.service';
     MdCardModule,
     MdIconModule,
     MdMenuModule,
+    MdSlideToggleModule,
     MdToolbarModule,
     AppRoutingModule
   ],

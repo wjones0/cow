@@ -13,11 +13,13 @@ import { Set } from '../../models/set';
 @Injectable()
 export class CharService {
 
+  private _authed: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+  public authed: Observable<boolean> = this._authed.asObservable();
+
   user: firebase.User;
   userSub: Subscription;
 
-  private _characterList: BehaviorSubject<Character[]> = new BehaviorSubject<Character[]>([]);
-  public characterList: Observable<Character[]> = this._characterList.asObservable();
+  public characterList: Observable<Character[]>;
 
   private _setList: BehaviorSubject<Set[]> = new BehaviorSubject<Set[]>([]);
   public setList: Observable<Set[]> = this._setList.asObservable();
@@ -26,20 +28,15 @@ export class CharService {
     this.userSub = afAuth.authState.subscribe((value) => {
       if (value) {
         this.user = value;
+        this._authed.next(true);
 
-        db.list('/' + this.user.uid).subscribe((value) => {
-          this._characterList.next(value);
-        });
+        this.characterList = db.list('/' + this.user.uid);
       }
     });
   }
 
-  selectCharacter(charID: string) {
-    for (let c of this._characterList.value) {
-      if (c.$key === charID) {
-        this._setList.next(c.sets);
-      }
-    }
+  setsForCharacter(charID: string): Observable<Set[]> {
+    return this.db.list('/' + this.user.uid + '/' + charID + '/sets');
   }
 
 }
