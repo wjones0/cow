@@ -39,6 +39,7 @@ export class SetsComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.routeSub.unsubscribe();
+    this.authSub.unsubscribe();
   }
 
   total(items: any) {
@@ -63,7 +64,12 @@ export class SetsComponent implements OnInit, OnDestroy {
   }
 
   selectSet(set: Set) {
-    this._router.navigate(['set-details', { charid: this.charID, charName: this.charName, setID: set.$key }]);
+    this._router.navigate(['set-details', {
+      charid: this.charID,
+      charName: this.charName,
+      setID: set.$key,
+      setName: encodeURIComponent(set.name).replace(/\(/g, "%28").replace(/\)/g, "%29")
+    }]);
   }
 
 }

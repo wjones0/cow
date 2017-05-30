@@ -9,6 +9,7 @@ import * as firebase from 'firebase/app';
 
 import { Character } from '../../models/character';
 import { Set } from '../../models/set';
+import { Item } from '../../models/item';
 
 @Injectable()
 export class CharService {
@@ -23,6 +24,8 @@ export class CharService {
 
   private _setList: BehaviorSubject<Set[]> = new BehaviorSubject<Set[]>([]);
   public setList: Observable<Set[]> = this._setList.asObservable();
+
+  private items: FirebaseListObservable<Item[]>;
 
   constructor(public afAuth: AngularFireAuth, public db: AngularFireDatabase) {
     this.userSub = afAuth.authState.subscribe((value) => {
@@ -39,4 +42,12 @@ export class CharService {
     return this.db.list('/' + this.user.uid + '/' + charID + '/sets');
   }
 
+  itemsForSet(charID: string, setID: string): Observable<Item[]> {
+    this.items = this.db.list('/' + this.user.uid + '/' + charID + '/sets/' + setID + '/items');
+    return this.items;
+  }
+
+  obtainItemUpdate(item: Item) {
+    this.items.update(item.$key, { obtained: !item.obtained });
+  }
 }

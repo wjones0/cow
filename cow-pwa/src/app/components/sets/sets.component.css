@@ -24,6 +24,7 @@ md-card-content {
     align-items: center;
 }
 
+
 :host >>> .obtained {
     background-color: rgba(0,0,0,.50);
 }

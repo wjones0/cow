@@ -1,0 +1,40 @@
+
+.fab {
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+}
+
+.header {
+    margin: 12px;
+    color: #333333;
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+md-card {
+    margin: 12px;
+}
+
+md-card-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+md-card-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+:host >>> .obtained {
+    background-color: rgba(0,0,0,.50);
+}
+
+.special-icon {
+    margin-right: 12px;
+    margin-bottom: 12px;
+}

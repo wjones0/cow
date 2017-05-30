@@ -1,3 +1,23 @@
-<p>
-  set-details works!
-</p>
+<div class="header">
+  <h2>{{setName}}</h2>
+  <md-slide-toggle [(ngModel)]="showAll">Show All</md-slide-toggle>
+</div>
+
+<div *ngFor="let i of itemList | async">
+  <md-card *ngIf="showAll || !i.obtained" [ngClass]="{obtained: i.obtained}" (click)="selectItem(i)">
+    <md-card-title>
+      <div>{{i.name}}</div>
+    </md-card-title>
+    <md-card-content>
+      {{i.mob}} - {{i.zone}}
+    </md-card-content>
+    <md-card-footer align="end">
+      <md-icon class="special-icon" *ngIf="i.buyable">local_offer</md-icon>
+      <md-icon class="special-icon" *ngIf="i.boe">share</md-icon>
+    </md-card-footer>
+  </md-card>
+</div>
+
+<button md-fab class="fab">
+  <md-icon>add</md-icon>
+</button>
