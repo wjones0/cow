@@ -26,4 +26,12 @@ export class CharactersComponent implements OnInit {
     this._router.navigate(['sets', { charid: char.$key, charName: char.name }]);
   }
 
+  edit(char: Character) {
+    console.log(char);
+  }
+
+  delete(char: Character) {
+    console.log(char);
+  }
+
 }

@@ -3,6 +3,10 @@
 <md-card *ngFor="let c of charSvc.characterList | async" (click)="selectChar(c)">
   <md-card-title>{{c.name}}</md-card-title>
   <md-card-subtitle>{{c.realm}}</md-card-subtitle>
+  <md-card-actions>
+    <button md-button (click)="edit(c); $event.stopPropagation()">Edit</button>
+    <button md-button (click)="delete(c); $event.stopPropagation()">Delete</button>
+  </md-card-actions>
 </md-card>
 
 <button md-fab class="fab">

@@ -12,6 +12,10 @@
       <div *ngIf="!s.raidTier"></div>
       <div>{{obtained(s.items)}}/{{total(s.items)}}</div>
     </md-card-content>
+    <md-card-actions>
+      <button md-button (click)="edit(s); $event.stopPropagation()">Edit</button>
+      <button md-button (click)="delete(s); $event.stopPropagation()">Delete</button>
+    </md-card-actions>
   </md-card>
 </div>
 

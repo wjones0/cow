@@ -72,4 +72,12 @@ export class SetsComponent implements OnInit, OnDestroy {
     }]);
   }
 
+  edit(set: Set) {
+    console.log(set);
+  }
+
+  delete(set: Set) {
+    console.log(set);
+  }
+
 }

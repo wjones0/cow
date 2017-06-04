@@ -11,7 +11,11 @@
     <md-card-content>
       {{i.mob}} - {{i.zone}}
     </md-card-content>
-    <md-card-footer align="end">
+    <md-card-actions>
+      <button md-button (click)="edit(i); $event.stopPropagation()">Edit</button>
+      <button md-button (click)="delete(i); $event.stopPropagation()">Delete</button>
+    </md-card-actions>
+    <md-card-footer align="end" *ngIf="i.buyable || i.boe">
       <md-icon class="special-icon" *ngIf="i.buyable">local_offer</md-icon>
       <md-icon class="special-icon" *ngIf="i.boe">share</md-icon>
     </md-card-footer>

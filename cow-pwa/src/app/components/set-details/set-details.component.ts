@@ -50,4 +50,12 @@ export class SetDetailsComponent implements OnInit {
     this.charSvc.obtainItemUpdate(item);
   }
 
+  edit(item: Item) {
+    console.log(item);
+  }
+
+  delete(item: Item) {
+    console.log(item);
+  }
+
 }
