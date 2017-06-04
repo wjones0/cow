@@ -50,4 +50,17 @@ export class CharService {
   obtainItemUpdate(item: Item) {
     this.items.update(item.$key, { obtained: !item.obtained });
   }
+
+  newCharacter(char: Character) {
+    const characters = this.db.list('/' + this.user.uid);
+    characters.push(char);
+  }
+
+  updateCharacter(char: Character) {
+    this.db.object('/' + this.user.uid + '/' + char.$key).update(char);
+  }
+
+  removeCharacter(char: Character) {
+    this.db.object('/' + this.user.uid + '/' + char.$key).remove();
+  }
 }

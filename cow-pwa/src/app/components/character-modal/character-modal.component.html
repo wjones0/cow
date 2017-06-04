@@ -1,0 +1,16 @@
+<form #charForm="ngForm" *ngIf="character">
+
+  <md-input-container color="accent">
+    <input mdInput name="name" placeholder="Name" [(ngModel)]="character.name" required>
+  </md-input-container>
+
+  <md-input-container color="accent">
+    <input mdInput name="realm" placeholder="Realm" [(ngModel)]="character.realm" required>
+  </md-input-container>
+
+  <div class="actions">
+    <button md-button (click)="close()">Cancel</button>
+    <button md-button [disabled]="charForm.form.invalid" (click)="save()">Save</button>
+  </div>
+
+</form>

@@ -12,7 +12,9 @@ import 'hammerjs';
 import {
   MdButtonModule,
   MdCardModule,
+  MdDialogModule,
   MdIconModule,
+  MdInputModule,
   MdMenuModule,
   MdSlideToggleModule,
   MdToolbarModule,
@@ -28,6 +30,7 @@ import { CharactersComponent } from './components/characters/characters.componen
 import { CharService } from './services/char-service/char.service';
 import { SetsComponent } from './components/sets/sets.component';
 import { SetDetailsComponent } from './components/set-details/set-details.component';
+import { CharacterModalComponent } from './components/character-modal/character-modal.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +38,11 @@ import { SetDetailsComponent } from './components/set-details/set-details.compon
     TopbarComponent,
     CharactersComponent,
     SetsComponent,
-    SetDetailsComponent
+    SetDetailsComponent,
+    CharacterModalComponent
+  ],
+  entryComponents: [
+    CharacterModalComponent,
   ],
   imports: [
     BrowserModule,
@@ -47,7 +54,9 @@ import { SetDetailsComponent } from './components/set-details/set-details.compon
     AngularFireAuthModule,
     MdButtonModule,
     MdCardModule,
+    MdDialogModule,
     MdIconModule,
+    MdInputModule,
     MdMenuModule,
     MdSlideToggleModule,
     MdToolbarModule,
