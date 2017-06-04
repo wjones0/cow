@@ -31,6 +31,7 @@ import { CharService } from './services/char-service/char.service';
 import { SetsComponent } from './components/sets/sets.component';
 import { SetDetailsComponent } from './components/set-details/set-details.component';
 import { CharacterModalComponent } from './components/character-modal/character-modal.component';
+import { CharacterDeleteModalComponent } from './components/character-delete-modal/character-delete-modal.component';
 
 @NgModule({
   declarations: [
@@ -39,10 +40,12 @@ import { CharacterModalComponent } from './components/character-modal/character-
     CharactersComponent,
     SetsComponent,
     SetDetailsComponent,
-    CharacterModalComponent
+    CharacterModalComponent,
+    CharacterDeleteModalComponent
   ],
   entryComponents: [
     CharacterModalComponent,
+    CharacterDeleteModalComponent,
   ],
   imports: [
     BrowserModule,

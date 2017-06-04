@@ -7,6 +7,7 @@ import { MdDialog } from '@angular/material';
 import { CharService } from '../../services/char-service/char.service';
 import { Character } from '../../models/character';
 import { CharacterModalComponent } from '../character-modal/character-modal.component';
+import { CharacterDeleteModalComponent } from '../character-delete-modal/character-delete-modal.component';
 
 @Component({
   selector: 'cow-characters',
@@ -45,7 +46,11 @@ export class CharactersComponent implements OnInit {
   }
 
   delete(char: Character) {
-    console.log(char);
+    let dialogRef = this.dialog.open(CharacterDeleteModalComponent, {
+      width: '75%',
+      disableClose: false,
+      data: char
+    });
   }
 
 }

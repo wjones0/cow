@@ -1,0 +1,22 @@
+<div class="warning">
+  <span>Are you really really sure you want to delete
+  <span class="charname">{{data.name}}</span> on <span class="charname">{{data.realm}}</span>?
+  </span>
+</div>
+
+<form #delForm="ngForm">
+
+  <md-input-container color="accent">
+    <input mdInput name="name" placeholder="Name" required [(ngModel)]="enteredName">
+  </md-input-container>
+
+  <md-input-container color="accent">
+    <input mdInput name="name" placeholder="Realm" required [(ngModel)]="enteredRealm">
+  </md-input-container>
+
+  <div class="actions">
+    <button md-button (click)="close()">Cancel</button>
+    <button md-button [disabled]="(enteredName!=data.name) || (enteredRealm!=data.realm)" (click)="delete()">Delete</button>
+  </div>
+
+</form>
