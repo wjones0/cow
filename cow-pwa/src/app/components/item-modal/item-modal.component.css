@@ -5,6 +5,10 @@
     justify-content: flex-end;
 }
 
+.buytoggle {
+    margin-top: 24px;
+}
+
 form {
     display: flex;
     flex-direction: column;
@@ -20,4 +24,8 @@ form {
 
 :host >>> .mat-input-underline {
     border-color: white;
+}
+
+md-slide-toggle {
+    margin-top: 12px;
 }
