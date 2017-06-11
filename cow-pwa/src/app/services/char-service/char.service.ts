@@ -20,8 +20,7 @@ export class CharService {
   user: firebase.User;
   userSub: Subscription;
 
-  public characterList: Observable<Character[]>;
-
+  public characters: FirebaseListObservable<Character[]>;
   private sets: FirebaseListObservable<Set[]>;
   private items: FirebaseListObservable<Item[]>;
 
@@ -31,7 +30,7 @@ export class CharService {
         this.user = value;
         this._authed.next(true);
 
-        this.characterList = db.list('/' + this.user.uid);
+        this.characters = db.list('/' + this.user.uid);
       }
     });
   }
@@ -51,16 +50,15 @@ export class CharService {
   }
 
   newCharacter(char: Character) {
-    const characters = this.db.list('/' + this.user.uid);
-    characters.push(char);
+    this.characters.push(char);
   }
 
   updateCharacter(char: Character) {
-    this.db.object('/' + this.user.uid + '/' + char.$key).update(char);
+    this.characters.update(char.$key, char);
   }
 
   removeCharacter(char: Character) {
-    this.db.object('/' + this.user.uid + '/' + char.$key).remove();
+    this.characters.remove(char.$key);
   }
 
   newSet(set: Set) {
