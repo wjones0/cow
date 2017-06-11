@@ -22,9 +22,7 @@ export class CharService {
 
   public characterList: Observable<Character[]>;
 
-  private _setList: BehaviorSubject<Set[]> = new BehaviorSubject<Set[]>([]);
-  public setList: Observable<Set[]> = this._setList.asObservable();
-
+  private sets: FirebaseListObservable<Set[]>;
   private items: FirebaseListObservable<Item[]>;
 
   constructor(public afAuth: AngularFireAuth, public db: AngularFireDatabase) {
@@ -39,7 +37,8 @@ export class CharService {
   }
 
   setsForCharacter(charID: string): Observable<Set[]> {
-    return this.db.list('/' + this.user.uid + '/' + charID + '/sets');
+    this.sets = this.db.list('/' + this.user.uid + '/' + charID + '/sets');
+    return this.sets;
   }
 
   itemsForSet(charID: string, setID: string): Observable<Item[]> {
@@ -62,5 +61,17 @@ export class CharService {
 
   removeCharacter(char: Character) {
     this.db.object('/' + this.user.uid + '/' + char.$key).remove();
+  }
+
+  newSet(set: Set) {
+    this.sets.push(set);
+  }
+
+  updateSet(set: Set) {
+    this.sets.update(set.$key, set);
+  }
+
+  removeSet(set: Set) {
+    this.sets.remove(set.$key);
   }
 }

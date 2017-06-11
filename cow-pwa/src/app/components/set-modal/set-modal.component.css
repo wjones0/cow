@@ -1,0 +1,23 @@
+
+.actions {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+:host >>> .mat-empty {
+    color: white;
+}
+
+:host >>> .mat-input-infix {
+    color: white;
+}
+
+:host >>> .mat-input-underline {
+    border-color: white;
+}

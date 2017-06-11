@@ -1,0 +1,16 @@
+<form #setForm="ngForm" *ngIf="set">
+
+  <md-input-container color="accent">
+    <input mdInput name="name" placeholder="Name" [(ngModel)]="set.name" required>
+  </md-input-container>
+
+  <md-input-container color="accent">
+    <input mdInput name="realm" placeholder="Raid Tier" [(ngModel)]="set.raidTier" required>
+  </md-input-container>
+
+  <div class="actions">
+    <button md-button (click)="close()">Cancel</button>
+    <button md-button [disabled]="setForm.form.invalid" (click)="save()">Save</button>
+  </div>
+
+</form>

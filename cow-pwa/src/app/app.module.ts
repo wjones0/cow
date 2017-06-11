@@ -32,6 +32,8 @@ import { SetsComponent } from './components/sets/sets.component';
 import { SetDetailsComponent } from './components/set-details/set-details.component';
 import { CharacterModalComponent } from './components/character-modal/character-modal.component';
 import { CharacterDeleteModalComponent } from './components/character-delete-modal/character-delete-modal.component';
+import { SetModalComponent } from './components/set-modal/set-modal.component';
+import { SetDeleteModalComponent } from './components/set-delete-modal/set-delete-modal.component';
 
 @NgModule({
   declarations: [
@@ -41,11 +43,15 @@ import { CharacterDeleteModalComponent } from './components/character-delete-mod
     SetsComponent,
     SetDetailsComponent,
     CharacterModalComponent,
-    CharacterDeleteModalComponent
+    CharacterDeleteModalComponent,
+    SetModalComponent,
+    SetDeleteModalComponent
   ],
   entryComponents: [
     CharacterModalComponent,
     CharacterDeleteModalComponent,
+    SetModalComponent,
+    SetDeleteModalComponent,
   ],
   imports: [
     BrowserModule,

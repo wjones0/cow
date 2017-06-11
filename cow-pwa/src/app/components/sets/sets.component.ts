@@ -2,9 +2,12 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import { Subscription } from 'rxjs/Subscription';
+import { MdDialog } from '@angular/material';
 
 import { CharService } from '../../services/char-service/char.service';
 import { Set } from '../../models/set';
+import { SetModalComponent } from '../set-modal/set-modal.component';
+import { SetDeleteModalComponent } from '../set-delete-modal/set-delete-modal.component';
 
 @Component({
   selector: 'cow-sets',
@@ -21,7 +24,7 @@ export class SetsComponent implements OnInit, OnDestroy {
   charName: string;
   showAll: boolean;
 
-  constructor(public charSvc: CharService, private _route: ActivatedRoute, private _router: Router) { }
+  constructor(public charSvc: CharService, public dialog: MdDialog, private _route: ActivatedRoute, private _router: Router) { }
 
   ngOnInit() {
     this.routeSub = this._route.params.subscribe(params => {
@@ -72,12 +75,28 @@ export class SetsComponent implements OnInit, OnDestroy {
     }]);
   }
 
+  add() {
+    let dialogRef = this.dialog.open(SetModalComponent, {
+      width: '75%',
+      disableClose: false,
+      data: null
+    });
+  }
+
   edit(set: Set) {
-    console.log(set);
+    let dialogRef = this.dialog.open(SetModalComponent, {
+      width: '75%',
+      disableClose: false,
+      data: set
+    });
   }
 
   delete(set: Set) {
-    console.log(set);
+    let dialogRef = this.dialog.open(SetDeleteModalComponent, {
+      width: '75%',
+      disableClose: false,
+      data: set
+    });
   }
 
 }
