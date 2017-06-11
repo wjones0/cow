@@ -1,0 +1,23 @@
+<form #itemForm="ngForm" *ngIf="item">
+
+  <md-input-container color="accent">
+    <input mdInput name="name" placeholder="Name" [(ngModel)]="item.name" required>
+  </md-input-container>
+
+  <md-input-container color="accent">
+    <input mdInput name="mob" placeholder="Mob" [(ngModel)]="item.mob" required>
+  </md-input-container>
+
+  <md-input-container color="accent">
+    <input mdInput name="zone" placeholder="Zone" [(ngModel)]="item.zone" required>
+  </md-input-container>
+
+  <md-slide-toggle name="boe" [(ngModel)]="item.boe">Bind on Equip?</md-slide-toggle>
+  <md-slide-toggle name="buyable" [(ngModel)]="item.buyable">Buyable?</md-slide-toggle>
+
+  <div class="actions">
+    <button md-button (click)="close()">Cancel</button>
+    <button md-button [disabled]="itemForm.form.invalid" (click)="save()">Save</button>
+  </div>
+
+</form>

@@ -72,4 +72,16 @@ export class CharService {
   removeSet(set: Set) {
     this.sets.remove(set.$key);
   }
+
+  newItem(item: Item) {
+    this.items.push(item);
+  }
+
+  updateItem(item: Item) {
+    this.items.update(item.$key, item);
+  }
+
+  removeItem(item: Item) {
+    this.items.remove(item.$key);
+  }
 }

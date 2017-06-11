@@ -1,10 +1,10 @@
 
 export class Item {
-    boe: string;
-    buyable: string;
+    boe: boolean;
+    buyable: boolean;
     mob: string;
     name: string;
     obtained: boolean;
     zone: string;
-    $key: string;
+    $key?: string;
 }
