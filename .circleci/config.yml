@@ -7,13 +7,13 @@ jobs:
      steps:
       - checkout
       - run: 
-        name: npm install
-        command: npm install
-        working_directory: ~/cow/cow-pwa
+          name: npm install
+          command: npm install
+          working_directory: ~/cow/cow-pwa
       - run:
-        name: run tests
-        command: ./node_modules/.bin/ng test --single-run
-        working_directory: ~/cow/cow-pwa
+          name: run tests
+          command: ./node_modules/.bin/ng test --single-run
+          working_directory: ~/cow/cow-pwa
       - store_test_results:
           path: /junit
       - store_artifacts:
