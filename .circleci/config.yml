@@ -1,0 +1,9 @@
+version: 2
+jobs:
+   build:
+     working_directory: ~/cow/cow-pwa
+     docker:
+       - image: circleci/node:7.10-browsers
+     steps:
+       - checkout
+       - run: echo "hello world"
