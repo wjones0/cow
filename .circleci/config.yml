@@ -3,14 +3,22 @@ jobs:
    build:
      working_directory: ~/cow
      docker:
-       - image: circleci/node:7.10-browsers
+      - image: circleci/node:7.10-browsers
      steps:
-       - checkout
-       - run: 
-          name: npm install
-          command: npm install
-          working_directory: ~/cow/cow-pwa
-       - run:
+      - checkout
+      - run: 
+        name: npm install
+        command: npm install
+        working_directory: ~/cow/cow-pwa
+      - run:
+        name: test
+        command: ./node_moduels/.bin/ng test --single-run
+        working_directory: ~/cow/cow-pwa
+      - store_test_results:
+        path: /junit
+      - store_artifacts:
+        path: /junit
+      - run:
           name: build
           command: ./node_modules/.bin/ng build --prod
           working_directory: ~/cow/cow-pwa
