@@ -22,4 +22,11 @@ jobs:
           name: build
           command: ./node_modules/.bin/ng build --prod
           working_directory: ~/cow/cow-pwa
+      - run:
+          name: install firebase
+          command: npm install -g firebase-tools
+      - run:
+          name: deploy to firebase
+          command: firebase deploy --token=$FIREBASE_TOKEN --non-interactive
+          working_directory: ~/cow/cow-pwa
        
