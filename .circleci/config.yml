@@ -15,9 +15,9 @@ jobs:
           command: ./node_modules/.bin/ng test --single-run
           working_directory: ~/cow/cow-pwa
       - store_test_results:
-          path: /junit
+          path: ~/cow/cow-pwa/junit
       - store_artifacts:
-          path: /junit
+          path: ~/cow/cow-pwa/junit
       - run:
           name: build
           command: ./node_modules/.bin/ng build --prod
