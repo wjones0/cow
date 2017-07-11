@@ -11,13 +11,13 @@ jobs:
         command: npm install
         working_directory: ~/cow/cow-pwa
       - run:
-        name: test
-        command: ./node_moduels/.bin/ng test --single-run
+        name: run tests
+        command: ./node_modules/.bin/ng test --single-run
         working_directory: ~/cow/cow-pwa
       - store_test_results:
-        path: /junit
+          path: /junit
       - store_artifacts:
-        path: /junit
+          path: /junit
       - run:
           name: build
           command: ./node_modules/.bin/ng build --prod
