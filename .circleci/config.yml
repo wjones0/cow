@@ -10,3 +10,8 @@ jobs:
           name: npm install
           command: npm install
           working_directory: ~/cow/cow-pwa
+       - run:
+          name: build
+          command: ./node_modules/.bin/ng build --prod
+          working_directory: ~/cow/cow-pwa
+       
