@@ -1,23 +1,23 @@
 <form #itemForm="ngForm" *ngIf="item">
 
-  <md-input-container color="accent">
-    <input mdInput name="name" placeholder="Name" [(ngModel)]="item.name" required>
-  </md-input-container>
+  <mat-form-field color="accent">
+    <input matInput name="name" placeholder="Name" [(ngModel)]="item.name" required>
+  </mat-form-field>
 
-  <md-input-container color="accent">
-    <input mdInput name="mob" placeholder="Mob" [(ngModel)]="item.mob" required>
-  </md-input-container>
+  <mat-form-field color="accent">
+    <input matInput name="mob" placeholder="Mob" [(ngModel)]="item.mob" required>
+  </mat-form-field>
 
-  <md-input-container color="accent">
-    <input mdInput name="zone" placeholder="Zone" [(ngModel)]="item.zone" required>
-  </md-input-container>
+  <mat-form-field color="accent">
+    <input matInput name="zone" placeholder="Zone" [(ngModel)]="item.zone" required>
+  </mat-form-field>
 
-  <md-slide-toggle name="boe" [(ngModel)]="item.boe">Bind on Equip?</md-slide-toggle>
-  <md-slide-toggle class="buytoggle" name="buyable" [(ngModel)]="item.buyable">Buyable?</md-slide-toggle>
+  <mat-slide-toggle name="boe" [(ngModel)]="item.boe">Bind on Equip?</mat-slide-toggle>
+  <mat-slide-toggle class="buytoggle" name="buyable" [(ngModel)]="item.buyable">Buyable?</mat-slide-toggle>
 
   <div class="actions">
-    <button md-button (click)="close()">Cancel</button>
-    <button md-button [disabled]="itemForm.form.invalid" (click)="save()">Save</button>
+    <button mat-button (click)="close()">Cancel</button>
+    <button mat-button [disabled]="itemForm.form.invalid" (click)="save()">Save</button>
   </div>
 
 </form>

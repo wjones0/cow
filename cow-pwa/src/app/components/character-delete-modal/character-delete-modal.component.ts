@@ -1,5 +1,5 @@
 import { Inject, Component, OnInit } from '@angular/core';
-import { MdDialogRef, MD_DIALOG_DATA } from '@angular/material';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 
 import { Character } from '../../models/character';
 import { CharService } from '../../services/char-service/char.service';
@@ -14,7 +14,7 @@ export class CharacterDeleteModalComponent implements OnInit {
   enteredName: string = '';
   enteredRealm: string = '';
 
-  constructor(private _charSvc: CharService, public dialog: MdDialogRef<CharacterDeleteModalComponent>, @Inject(MD_DIALOG_DATA) public data: Character) { }
+  constructor(private _charSvc: CharService, public dialog: MatDialogRef<CharacterDeleteModalComponent>, @Inject(MAT_DIALOG_DATA) public data: Character) { }
 
   ngOnInit() {
   }

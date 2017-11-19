@@ -1,24 +1,24 @@
 <div class="header">
   <h2>{{charName}}'s Sets</h2>
-  <md-slide-toggle [(ngModel)]="showAll">Show All</md-slide-toggle>
+  <mat-slide-toggle [(ngModel)]="showAll">Show All</mat-slide-toggle>
 </div>
 
 <div *ngFor="let s of setList | async">
-  <md-card *ngIf="showAll || (!showAll && obtained(s.items)!=total(s.items))" [ngClass]="{obtained: obtained(s.items)==total(s.items)}"
+  <mat-card *ngIf="showAll || (!showAll && obtained(s.items)!=total(s.items))" [ngClass]="{obtained: obtained(s.items)==total(s.items)}"
     (click)="selectSet(s)">
-    <md-card-title>{{s.name}}</md-card-title>
-    <md-card-content>
+    <mat-card-title>{{s.name}}</mat-card-title>
+    <mat-card-content>
       <div *ngIf="s.raidTier" class="tier-badge">{{s.raidTier}}</div>
       <div *ngIf="!s.raidTier"></div>
       <div>{{obtained(s.items)}}/{{total(s.items)}}</div>
-    </md-card-content>
-    <md-card-actions>
-      <button md-button (click)="edit(s); $event.stopPropagation()">Edit</button>
-      <button md-button (click)="delete(s); $event.stopPropagation()">Delete</button>
-    </md-card-actions>
-  </md-card>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button (click)="edit(s); $event.stopPropagation()">Edit</button>
+      <button mat-button (click)="delete(s); $event.stopPropagation()">Delete</button>
+    </mat-card-actions>
+  </mat-card>
 </div>
 
-<button md-fab class="fab" (click)="add()">
-  <md-icon>add</md-icon>
+<button mat-fab class="fab" (click)="add()">
+  <mat-icon>add</mat-icon>
 </button>

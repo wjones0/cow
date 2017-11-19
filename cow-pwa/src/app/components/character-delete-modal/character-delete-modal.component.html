@@ -6,17 +6,17 @@
 
 <form #delForm="ngForm">
 
-  <md-input-container color="accent">
-    <input mdInput name="name" placeholder="Name" required [(ngModel)]="enteredName">
-  </md-input-container>
+  <mat-form-field color="accent">
+    <input matInput name="name" placeholder="Name" required [(ngModel)]="enteredName">
+  </mat-form-field>
 
-  <md-input-container color="accent">
-    <input mdInput name="name" placeholder="Realm" required [(ngModel)]="enteredRealm">
-  </md-input-container>
+  <mat-form-field color="accent">
+    <input matInput name="name" placeholder="Realm" required [(ngModel)]="enteredRealm">
+  </mat-form-field>
 
   <div class="actions">
-    <button md-button (click)="close()">Cancel</button>
-    <button md-button [disabled]="(enteredName!=data.name) || (enteredRealm!=data.realm)" (click)="delete()">Delete</button>
+    <button mat-button (click)="close()">Cancel</button>
+    <button mat-button [disabled]="(enteredName!=data.name) || (enteredRealm!=data.realm)" (click)="delete()">Delete</button>
   </div>
 
 </form>

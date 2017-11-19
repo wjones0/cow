@@ -2,7 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import { Subscription } from 'rxjs/Subscription';
-import { MdDialog } from '@angular/material';
+import { MatDialog } from '@angular/material';
 
 import { CharService } from '../../services/char-service/char.service';
 import { Item } from '../../models/item';
@@ -26,7 +26,7 @@ export class SetDetailsComponent implements OnInit {
   setName: string;
   showAll: boolean;
 
-  constructor(public charSvc: CharService, public dialog: MdDialog, private _route: ActivatedRoute, private _router: Router) { }
+  constructor(public charSvc: CharService, public dialog: MatDialog, private _route: ActivatedRoute, private _router: Router) { }
 
   ngOnInit() {
     this.routeSub = this._route.params.subscribe(params => {

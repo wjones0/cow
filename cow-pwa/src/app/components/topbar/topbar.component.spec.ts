@@ -7,10 +7,10 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFireAuth } from 'angularfire2/auth';
 
 import {
-  MdButtonModule,
-  MdIconModule,
-  MdMenuModule,
-  MdToolbarModule,
+  MatButtonModule,
+  MatIconModule,
+  MatMenuModule,
+  MatToolbarModule,
 } from '@angular/material';
 
 import { environment } from '../../../environments/environment';
@@ -28,10 +28,10 @@ describe('TopbarComponent', () => {
       imports: [
         AngularFireModule.initializeApp(environment.firebase),
         AngularFireAuthModule,
-        MdButtonModule,
-        MdIconModule,
-        MdMenuModule,
-        MdToolbarModule,
+        MatButtonModule,
+        MatIconModule,
+        MatMenuModule,
+        MatToolbarModule,
       ]
     })
       .compileComponents();

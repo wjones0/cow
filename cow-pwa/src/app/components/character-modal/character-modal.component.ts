@@ -1,5 +1,5 @@
 import { Inject, Component, OnInit } from '@angular/core';
-import { MdDialogRef, MD_DIALOG_DATA } from '@angular/material';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 
 import { Character } from '../../models/character';
 import { CharService } from '../../services/char-service/char.service';
@@ -13,7 +13,7 @@ export class CharacterModalComponent implements OnInit {
 
   character: Character;
 
-  constructor(private _charSvc: CharService, public dialog: MdDialogRef<CharacterModalComponent>, @Inject(MD_DIALOG_DATA) public data: Character) { }
+  constructor(private _charSvc: CharService, public dialog: MatDialogRef<CharacterModalComponent>, @Inject(MAT_DIALOG_DATA) public data: Character) { }
 
   ngOnInit() {
     if (this.data) {

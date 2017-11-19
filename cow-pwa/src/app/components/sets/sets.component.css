@@ -15,11 +15,11 @@
     align-items: center;
 }
 
-md-card {
+mat-card {
     margin: 12px;
 }
 
-md-card-content {
+mat-card-content {
     display: flex;
     justify-content: space-between;
     align-items: center;

@@ -26,6 +26,6 @@ form {
     border-color: white;
 }
 
-md-slide-toggle {
+mat-slide-toggle {
     margin-top: 12px;
 }

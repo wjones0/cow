@@ -10,14 +10,14 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 
 import 'hammerjs';
 import {
-  MdButtonModule,
-  MdCardModule,
-  MdDialogModule,
-  MdIconModule,
-  MdInputModule,
-  MdMenuModule,
-  MdSlideToggleModule,
-  MdToolbarModule,
+  MatButtonModule,
+  MatCardModule,
+  MatDialogModule,
+  MatIconModule,
+  MatInputModule,
+  MatMenuModule,
+  MatSlideToggleModule,
+  MatToolbarModule,
 } from '@angular/material';
 
 import { environment } from '../environments/environment';
@@ -67,14 +67,14 @@ import { ItemDeleteModalComponent } from './components/item-delete-modal/item-de
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
-    MdButtonModule,
-    MdCardModule,
-    MdDialogModule,
-    MdIconModule,
-    MdInputModule,
-    MdMenuModule,
-    MdSlideToggleModule,
-    MdToolbarModule,
+    MatButtonModule,
+    MatCardModule,
+    MatDialogModule,
+    MatIconModule,
+    MatInputModule,
+    MatMenuModule,
+    MatSlideToggleModule,
+    MatToolbarModule,
     AppRoutingModule
   ],
   providers: [
